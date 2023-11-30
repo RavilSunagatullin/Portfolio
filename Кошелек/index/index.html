@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="../normal.css" />
+    <script src="script.js" defer></script>
+    <style>
+      .d-none {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- при удалении активной категории перерисов таб -->
+    <!-- при удалении категории удалаять и все записиси -->
+    <!-- при удалении менять баланс? -->
+    <div class="auth-false">
+      <h1>Ошибка авторизации</h1>
+      <p>Пароль или логин не правильный</p>
+      <form action="../form/form.html">
+        <button type="submit" id="exit">Назад</button>
+      </form>
+    </div>
+    <div class="auth-true">
+      <div class="panel">
+        <h1 class="panel__balance">Баланс: <span id="balance">0</span></h1>
+        <div class="panel__sub-info">
+          <h2 id="loginTitle">Логин</h2>
+          <h2 id="passwordTitle">Пароль</h2>
+        </div>
+      </div>
+      <div class="form-panels">
+        <div class="income form">
+          <label for="incomeTitle" class="form__label">Добавить доход:</label>
+          <input
+            type="text"
+            placeholder="Загаловок дохода"
+            id="incomeTitle"
+            class="form__input"
+          />
+          <input
+            type="number"
+            placeholder="Сумма дохода"
+            id="incomeSum"
+            class="form__input"
+          />
+          <input
+            type="date"
+            placeholder="Дата дохода"
+            id="incomeData"
+            class="form__input"
+          />
+          <select
+            name="incomeSelect"
+            id="incomeSelect"
+            class="form__input"
+          ></select>
+          <button id="incomeBtn">Добавить</button>
+        </div>
+        <div class="expense form">
+          <label for="expenseTitle" class="form__label"
+            >Добавить расходы:</label
+          >
+          <input
+            type="text"
+            placeholder="Загаловок расхода"
+            id="expenseTitle"
+            class="form__input"
+          />
+          <input
+            type="number"
+            placeholder="Сумма расходов"
+            id="expenseSum"
+            class="form__input"
+          />
+          <input
+            type="date"
+            placeholder="Дата расходов"
+            id="expenseData"
+            class="form__input"
+          />
+          <select
+            name="expenseSelect"
+            id="expenseSelect"
+            class="form__input"
+          ></select>
+          <button id="expenseBtn">Добавить</button>
+        </div>
+        <div class="category form">
+          <label for="categoryTitle" class="form__label"
+            >Добавить категорию:</label
+          >
+          <input
+            type="text"
+            placeholder="Загаловок категории"
+            id="categoryTitle"
+            class="form__input"
+          />
+          <button id="categoryBtn">Добавить</button>
+        </div>
+      </div>
+      <div class="data-of-panels">
+        <ul id="incomes" class="data-panel green">
+          <li class="no-delete">Доходы:</li>
+        </ul>
+        <ul id="expenses" class="data-panel red">
+          <li class="no-delete">Расходы:</li>
+        </ul>
+        <ul id="categories" class="data-panel">
+          <li class="no-delete">Категории:</li>
+        </ul>
+      </div>
+      <div class="rest">
+        <div class="update-password form">
+          <label for="updatePassword" class="form__label"
+            >Обновление пароля:</label
+          >
+          <input
+            type="text"
+            placeholder="Пароль"
+            id="updatePassword"
+            class="form__input"
+          />
+          <input
+            type="password"
+            placeholder="Подтвердите пароль"
+            id="confirmPassword"
+            class="form__input"
+          />
+          <button id="updatePasswordBtn">Обновитть</button>
+          <p class="d-none" id="confirmAlarm">Не подвержден</p>
+          <p class="d-none" id="updateAlarm">Обновлен</p>
+          <a href="../form/form.html" style="width: 100%">Выход</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
