@@ -1,0 +1,66 @@
+.mouse
+    position: fixed
+    top: 0
+    left: 0
+    width: 45px
+    height: 45px
+    border-radius: 100%
+    z-index: 9999999
+    pointer-events: none
+    &::before
+        content: ''
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: 35px
+        height: 35px
+        background-color: #d7d7d7
+        z-index: 2
+        box-shadow: 4px 4px 4px #cccaca
+        border-radius: 100%
+        transition: opacity ease-in-out 0.3s
+    &::after
+        content: ""
+        width: 45px
+        height: 45px
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        border-radius: 100%
+        background: #d7d7d7
+        transition: opacity ease-in-out 0.3s
+    &__view
+        position: absolute
+        left: 50%
+        top: 50%
+        z-index: 10
+        transform: translate(-50%, -50%)
+        width: 80px
+        height: 80px
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 100%
+        background-color: #000
+        font-size: 18px
+        line-height: 18px
+        letter-spacing: 1px
+        text-transform: uppercase
+        color: #fff
+        opacity: 0
+        transition: opacity ease-in-out 0.3s
+
+.view-visible 
+    .mouse__view
+        opacity: 1
+
+.links-visible
+    &::after
+        border: 4px solid #cdcdcd
+        transform: translate(-50%, -50%) scale(0.5)
+        background-color: transparent
+        transition: 0.3s
+    &::before
+        opacity: 0

@@ -1,0 +1,35 @@
+.slides-container__left 
+    position: relative
+    width: 48%
+    flex-shrink: 0
+    padding-top: 67px
+
+.slides-container__slide 
+    position: absolute
+    z-index: 20
+    width: 100%
+    left: 0
+    top: 117px
+    pointer-events: none
+    
+.slides-container--active 
+    pointer-events: auto
+    opacity: 1
+
+.slides-container__text 
+    width: 100%
+    position: relative
+    flex-shrink: 0
+
+.slides-container__title 
+    font-family: 'Merriweather', sans-serif
+    font-weight: 300
+    font-size: 112px
+    line-height: 130px
+    color: #fff   
+    margin: 0
+    margin-bottom: 70px     
+    opacity: 0
+    transform: translateY(100px)
+    &--dark
+        color:#000
