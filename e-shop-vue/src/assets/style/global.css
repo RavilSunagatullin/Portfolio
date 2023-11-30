@@ -1,0 +1,35 @@
+:root{
+  --satoshi: 'Satoshi-Regular', sans-serif;
+  --clashDisplay: 'ClashDisplay-Regular', sans-serif; 
+  --black: #2A254B;
+  --gray: #726e8d;
+  --lightGray: #5b5676;
+  --white: #fff;
+  --whiteTransparent:rgba(249,249,249, 0.15);  
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: var(--satoshi);
+    font-size: 16px;
+    font-weight: 400;
+    
+  }
+  
+  .container{
+    max-width: 1440px;
+    margin: auto;
+  }
+  .container--small{
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  img{
+    max-width: 100%;
+  }
+
+  @import url('/public/fonts/Satoshi_Complete/Fonts/WEB/css/satoshi.css');
+  @import url('/public/fonts/ClashDisplay_Complete/Fonts/WEB/css/clash-display.css');
