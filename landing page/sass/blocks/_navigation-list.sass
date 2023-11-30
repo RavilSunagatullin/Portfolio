@@ -1,0 +1,15 @@
+.navigation-list 
+    ul
+        display: flex
+    li
+        margin-right: 42px
+
+        &:last-child
+            margin-right: 0
+    a
+        transition: 0.15s linear
+        &:hover
+            color: $accent-color
+        &.active
+            color: $accent-color
+            font-weight: 700

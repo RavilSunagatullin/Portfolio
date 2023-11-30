@@ -1,0 +1,51 @@
+.card-testimonial
+    display: inline-block
+    border-radius: 5px
+    overflow: hidden
+    max-width: 350px
+    transition: 0.2s ease-in-out
+    &:hover
+        box-shadow: 0px 10px 52px rgba(0, 0, 0, 0.08)
+.card-testimonial__img-wrapper
+    position: relative
+
+.card-testimonial__btn-play
+    position: absolute
+    right: 20px
+    bottom: 20px
+    transform: translateY(35%)
+    opacity: 0
+    transition: 0.1s ease-in-out
+    .card-testimonial:hover &
+        transform: translateY(0%)
+        opacity: 1
+.card-testimonial__svg-play
+    circle
+            fill:#fff 
+            transition: 0.2s ease-in-out
+    path
+            
+            fill:#f48434
+            transition: 0.2s ease-in-out
+    &:hover 
+        circle
+            fill:#f48434
+        path
+            fill:#fff
+
+.card-testimonial__body
+    padding: 30px
+
+.card-testimonial__text
+    margin-bottom: 23px
+
+.card-testimonial__name 
+    font-size: 18px
+    font-weight: 700
+
+.card-testimonial__city 
+    color:#58bebf
+    .card-testimonial:hover &
+        color:#f48434
+
+
