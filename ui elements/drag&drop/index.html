@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Drag & Drop</title>
+  </head>
+  <body>
+    <!-- мне лень фиксить то что их можно вкладывать в друг друга -->
+    <!-- ps если кто-то читает дайте намек как пофисксить тут в коментах-->
+    <!-- на ютуб не подпишусь хи-хи-хи -->
+    <div>
+      <div class="row">
+        <div class="col-header start">Начать</div>
+        <div class="col-header progress">В процессе</div>
+        <div class="col-header done">Готовы</div>
+      </div>
+
+      <div class="row">
+        <div class="placeholder">
+          <p class="item" data-item="1" draggable="true">Перетащи меня</p>
+        </div>
+        <div class="placeholder">
+          <p class="item" data-item="2" draggable="true">Сразу несколько</p>
+        </div>
+        <div class="placeholder">
+          <p class="item" data-item="3" draggable="true">Хотя есть баг 😕</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
