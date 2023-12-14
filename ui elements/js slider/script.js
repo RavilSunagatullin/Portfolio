@@ -28,3 +28,20 @@ downBtn.onclick = () => {
   mainSlide.style.transform = `translateY(${activeCounter * height}px)`;
   sidebar.style.transform = `translateY(-${activeCounter * height}px)`;
 };
+document.onkeydown = (key) => {
+  if (key.key === "ArrowUp") {
+    activeCounter--;
+    if (activeCounter < 0) {
+      activeCounter = count - 1;
+    }
+    mainSlide.style.transform = `translateY(${activeCounter * height}px)`;
+    sidebar.style.transform = `translateY(-${activeCounter * height}px)`;
+  } else if (key.key === "ArrowDown") {
+    activeCounter++;
+    if (activeCounter === count) {
+      activeCounter = 0;
+    }
+    mainSlide.style.transform = `translateY(${activeCounter * height}px)`;
+    sidebar.style.transform = `translateY(-${activeCounter * height}px)`;
+  }
+};
