@@ -1,0 +1,79 @@
+.form {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-parameters {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  &-button {
+    margin-top: 8px;
+    padding: 16px 0;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  &-input {
+    padding: 8px 16px 8px;
+    width: 100%;
+    border-radius: 12px;
+    border: var(--border-color);
+
+    transition: var(--transition);
+
+    font-size: 24px;
+    text-overflow: ellipsis;
+
+    color: var(--font-color);
+    background: var(--background-color-hover);
+
+    &:focus {
+      outline: none;
+      border: var(--border-color-white);
+      color: var(--background-color-white);
+    }
+
+    &::placeholder {
+      color: var(--font-color);
+    }
+  }
+}
+
+.form-wrapper,
+.battle-zone {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--background-color-hover);
+  border: var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.battle-zone-button {
+  margin-top: 16px;
+  padding: 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.form,
+.form-input,
+.radio-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.parameter-input {
+  max-width: 48%;
+}

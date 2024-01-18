@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Condition</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Форма создания персонажей -->
+    <div class="form-container">
+      <button id="hideBtn">Add Hero</button>
+      <form action="#" id="form" class="form hide">
+        <input type="text" id="heroName" placeholder="Имя героя" />
+        <input type="text" id="heroClass" placeholder="Класс героя" />
+        <input type="url" id="heroUrl" placeholder="Фотокарточка героя(URL)" />
+        <button id="addButton" class="addButton">Добавить героя</button>
+      </form>
+    </div>
+    <!-- контейнер персонажей -->
+    <div id="heroesContainer" class="heroesContainer">
+      <!-- Пример верстки карточки -->
+      <div class="card">
+        <div class="card-info">
+          <h3>Title</h3>
+          <p>Description</p>
+          <svg class="bin-icon" viewBox="0 0 24 24" width="512" height="512"><g id="_01_align_center" data-name="01 align center"><path d="M22,4H17V2a2,2,0,0,0-2-2H9A2,2,0,0,0,7,2V4H2V6H4V21a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V6h2ZM9,2h6V4H9Zm9,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V6H18Z"/><rect x="9" y="10" width="2" height="8"/><rect x="13" y="10" width="2" height="8"/></g></svg>
+          <div class="card-parameters">
+            <div class="card-parameter">
+                <p class="card-parameter-title">str</p>
+                <p class="card-parameter-value">${hero.str}</p>
+            </div>
+            <div class="card-parameter">
+                <p class="card-parameter-title">agi</p>
+                <p class="card-parameter-value">${hero.agi}</p>
+            </div>
+            <div class="card-parameter">
+                <p class="card-parameter-title">hp</p>
+                <p class="card-parameter-value">${hero.hp}</p>
+            </div>
+            <div class="card-parameter">
+                <p class="card-parameter-title">int</p>
+                <p class="card-parameter-value">${hero.int}</p>
+            </div>
+        </div>
+        </div>
+        <img class="card__img" src="https://steamuserimages-a.akamaihd.net/ugc/1754695472804333066/5A0B0134BBFD81C78681D92D96FBF589CA06156A/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="photo"/>
+      </div>
+    </div>
+  </body>
+</html>

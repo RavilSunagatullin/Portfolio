@@ -1,3 +1,7 @@
-// const api = "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";
-const api = "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"
+const api1 = "sk-sVVopkIhKNd9W7ad4PCXT3B"
+const api2 = "fvisp1sULfvisp1sUL7ad4P"
+const api3 = "lbkFJdRawfvisp1sULDn2nNVk"
+
+const api = api1+api3
+
 export default api

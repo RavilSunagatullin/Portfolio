@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Super Dance Battle</title>
+    <!-- <link rel="icon" href="images/favicon.ico" type="image/x-icon" /> -->
+    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" /> -->
+    <!-- здесь можно было бы добавить мета теги для сео и правильного отображения ссылки на сайт, но это избыточно -->
+    <link rel="stylesheet" href="./scss/main.css" />
+    <script src="typescript/script.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <div class="game-zones">
+        <section class="form-wrapper">
+          <!-- Форма для ввода данных о герое -->
+          <form id="heroForm" class="form">
+            <label class="radio-label-title">Класс</label>
+            <div class="radio-row">
+              <!-- Радиокнопки для выбора класса Маг или Рыцарь -->
+              <input
+                class="radio-input"
+                name="class"
+                type="radio"
+                id="classMage"
+                value="Mage"
+                checked
+              />
+              <label class="radio-label-text" for="classMage">Маг 🪄</label>
+              <input
+                class="radio-input"
+                type="radio"
+                id="classKnight"
+                name="class"
+                value="Knight"
+              />
+              <label class="radio-label-text" for="classKnight">Рыцарь 🗡</label>
+            </div>
+            <!-- Поля для ввода имени, уровня и характеристик героя -->
+            <input
+              class="form-input"
+              type="text"
+              id="name"
+              name="name"
+              maxlength="24"
+              placeholder="Имя героя"
+            />
+            <input
+              class="form-input"
+              type="number"
+              id="level"
+              min="1"
+              max="10"
+              name="level"
+              placeholder="Уровень"
+            />
+            <div class="form-parameters">
+              <!-- Поля для ввода параметров героя -->
+              <datalist id="defaultNumbers">
+                <option value="10"></option>
+                <option value="25"></option>
+                <option value="50"></option>
+                <option value="75"></option>
+              </datalist>
+              <input
+                class="form-input parameter-input"
+                type="number"
+                min="1"
+                max="99"
+                id="strength"
+                name="strength"
+                placeholder="Сила"
+                list="defaultNumbers"
+              />
+              <input
+                class="form-input parameter-input"
+                type="number"
+                min="1"
+                max="99"
+                id="intelligence"
+                name="intelligence"
+                placeholder="Интеллект"
+                list="defaultNumbers"
+              />
+              <input
+                class="form-input parameter-input"
+                type="number"
+                min="1"
+                max="99"
+                id="agility"
+                name="agility"
+                placeholder="Ловкость"
+                list="defaultNumbers"
+              />
+              <input
+                class="form-input parameter-input"
+                type="number"
+                id="additionalStat"
+                min="1"
+                name="additionalStat"
+                placeholder="Мана / Энергия"
+                list="defaultNumbers"
+              />
+            </div>
+            <!-- баг prettier 👍 -->
+            <label class="radio-label-title" id="additionalAbilityText"
+              >Есть зелье для тектоника? / Танцует танго на коне?</label
+            >
+            <div class="radio-row">
+              <!-- Радиокнопки для выбора дополнительного умения -->
+              <input
+                class="radio-input"
+                type="radio"
+                id="additionalAbilityTrue"
+                name="additionalAbility"
+                value="true"
+                checked
+              />
+              <label class="radio-label-text" for="additionalAbilityTrue"
+                >Да</label
+              >
+
+              <input
+                class="radio-input"
+                type="radio"
+                id="additionalAbilityFalse"
+                name="additionalAbility"
+                value="false"
+              />
+              <label class="radio-label-text" for="additionalAbilityFalse"
+                >Нет</label
+              >
+            </div>
+            <!-- Кнопка для отправки героя на бой -->
+            <button class="form-button" id="sendToBattleButton" type="button">
+              Отправить на танцпол
+            </button>
+          </form>
+        </section>
+
+        <section class="battle-zone">
+          <!-- Зона для отображения карточек героев и кнопки начала боя -->
+          <div class="cards">
+            <!-- Карточка игрока -->
+            <div class="card-wrapper">
+              <h2 class="card-heading">Ваш герой</h2>
+              <div class="card">
+                <div class="card-title">
+                  <h2 id="playerHeroClass" class="card-class">Класс</h2>
+                  <h2 id="playerHeroName" class="card-title-text">Имя героя</h2>
+                </div>
+                <div class="card-description">
+                  <h3 class="card-level">
+                    Уровень:
+                    <span id="playerHeroLevel" class="hero-level-amount"
+                      >--</span
+                    >
+                  </h3>
+                  <p class="card-parameters-heading">Характеристики:</p>
+                  <div class="card-parameters">
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">STR</p>
+                      <span id="playerHeroStrength" class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">AGI</p>
+                      <span id="playerHeroAgility" class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">HP</p>
+                      <span id="playerHeroHp" class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">INT</p>
+                      <span
+                        id="playerHeroIntelligence"
+                        class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Кнопка для дополнительного умения -->
+              <button id="doSkillButton" class="card-button" disabled>
+                Дополнительное умение
+              </button>
+            </div>
+
+            <!-- Карточка противника -->
+            <div class="card-wrapper">
+              <h2 class="card-heading">Герой оппонента</h2>
+              <div class="card">
+                <div class="card-title">
+                  <h2 id="enemyHeroClass" class="card-class">Класс</h2>
+                  <h2 id="enemyHeroName" class="card-title-text">Имя героя</h2>
+                </div>
+                <div class="card-description">
+                  <h3 class="card-level">
+                    Уровень:
+                    <span id="enemyHeroLevel" class="hero-level-amount"
+                      >--</span
+                    >
+                  </h3>
+                  <p class="card-parameters-heading">Характеристики:</p>
+                  <div class="card-parameters">
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">STR</p>
+                      <span id="enemyHeroStrength" class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">AGI</p>
+                      <span id="enemyHeroAgility" class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">HP</p>
+                      <span id="enemyHeroHp" class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                    <div class="card-parameter">
+                      <p class="card-parameter-title">INT</p>
+                      <span
+                        id="enemyHeroIntelligence"
+                        class="card-parameter-value"
+                        >--</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Кнопка для получения нового противника -->
+              <button id="getEnemyButton" class="card-button" disabled>
+                Получить героя
+              </button>
+            </div>
+          </div>
+          <!-- Кнопка начала боя -->
+          <button id="startBattleButton" class="battle-zone-button" disabled>
+            Начать баттл!
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <!-- Кнопка для скрытия/показа консоли -->
+    <button class="dev-tools__button">Скрыть / Показать консоль</button>
+
+    <!-- Зона отображения консоли -->
+    <section class="dev-tools hide">
+      <h2 class="dev-tools__title">Консоль</h2>
+      <div class="dev-tools__wrapper">
+        <p class="dev-tools__text"></p>
+      </div>
+    </section>
+
+    <!-- Оверлей для всплывающего окна -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Всплывающее окно для отображения победителя -->
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <h1>Победитель: <span class="winnerHeroName">Герой</span></h1>
+        <!-- Карточка победителя -->
+        <div class="card-wrapper">
+          <h2 class="card-heading" id="winnerOpposition">Ваш герой</h2>
+          <div class="card">
+            <div class="card-title">
+              <h2 id="winnerHeroClass" class="card-class">Класс</h2>
+              <h2 class="winnerHeroName" class="card-title-text">Имя героя</h2>
+            </div>
+            <div class="card-description">
+              <h3 class="card-level">
+                Уровень:
+                <span id="winnerHeroLevel" class="hero-level-amount">--</span>
+              </h3>
+              <p class="card-parameters-heading">Характеристики:</p>
+              <div class="card-parameters">
+                <div class="card-parameter">
+                  <p class="card-parameter-title">STR</p>
+                  <span id="winnerHeroStrength" class="card-parameter-value"
+                    >--</span
+                  >
+                </div>
+                <div class="card-parameter">
+                  <p class="card-parameter-title">AGI</p>
+                  <span id="winnerHeroAgility" class="card-parameter-value"
+                    >--</span
+                  >
+                </div>
+                <div class="card-parameter">
+                  <p class="card-parameter-title">HP</p>
+                  <span id="winnerHeroHp" class="card-parameter-value">--</span>
+                </div>
+                <div class="card-parameter">
+                  <p class="card-parameter-title">INT</p>
+                  <span id="winnerHeroIntelligence" class="card-parameter-value"
+                    >--</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

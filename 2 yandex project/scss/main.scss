@@ -1,0 +1,14 @@
+// Base scss styles
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import "./base/_reset";
+@import "./base/_base";
+@import "./base/_vars";
+
+// Components scss styles
+@import "./components/_container";
+@import "./components/_form";
+@import "./components/_radio";
+@import "./components/_card";
+@import "./components/_media";
+@import "./components/_dev-tools";
+@import "./components/_popup";

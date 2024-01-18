@@ -1,0 +1,60 @@
+.hide {
+  transform: translateX(-300px);
+}
+.dev-tools {
+  padding: 15px 10px 0;
+  position: absolute;
+  max-width: 300px;
+  width: 100%;
+  height: 100%;
+
+  border-right: var(--border-color);
+
+  transition: var(--transition);
+
+  background-color: var(--background-color-disable);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  z-index: 1005;
+
+  &__button {
+    border: none;
+    border-radius: 0px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+
+    font-weight: 400;
+    font-family: "Mulish", sans-serif;
+
+    color: var(--font-color);
+    background-color: var(--background-color);
+
+    transition: var(--transition);
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--background-color-disable);
+    }
+    &:not([disabled]):hover {
+      color: var(--background-color-white);
+      background: var(--accent-color);
+      border-radius: 0px;
+    }
+  }
+
+  &__title {
+    font-size: 24px;
+    color: var(--font-color);
+  }
+  &__text {
+    color: var(--font-color);
+  }
+  &__wrapper {
+    overflow-y: scroll;
+    height: 100vh;
+  }
+}

@@ -1,0 +1,101 @@
+/*   Стили для карточек   */
+.cards {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+.card {
+  margin-top: 8px;
+  padding: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 8px;
+
+  background: var(--background-color);
+  backdrop-filter: blur(1px);
+  color: var(--font-color);
+  overflow: hidden;
+
+  &-wrapper {
+    flex: 1;
+    max-width: 346px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+  }
+  &-heading {
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  &-class {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 300;
+  }
+  &-title-text {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  &-description-text {
+    font-weight: 400;
+    text-align: center;
+  }
+  &-parameters {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+    &-heading {
+      margin: 8px 0;
+    }
+  }
+  &-parameter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-title {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent-color);
+    }
+    &-value {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+  &-button {
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+
+    margin-top: 8px;
+    padding: 8px;
+
+    font-weight: 400;
+    font-family: "Mulish", sans-serif;
+    font-size: 24px;
+
+    border: var(--border-color);
+    color: var(--font-color);
+    background-color: var(--background-color);
+
+    transition: var(--transition);
+
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--background-color-disable);
+    }
+
+    &:not([disabled]):hover {
+      background-color: var(--background-color-hover);
+    }
+  }
+}

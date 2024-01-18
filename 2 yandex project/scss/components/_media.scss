@@ -1,0 +1,33 @@
+@media screen and (max-width: 752px) {
+  .page-heading {
+    font-size: 32px;
+  }
+
+  .form-input,
+  .card-description,
+  .card-parameter-value,
+  .radio-label-text,
+  .radio-label-title,
+  .form-button {
+    font-size: 24px;
+  }
+
+  .form-button {
+    margin-top: 4px;
+  }
+
+  .form,
+  .cards {
+    gap: 16px;
+  }
+
+  .cards {
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 394px) {
+  .page-heading {
+    font-size: 24px;
+  }
+}
