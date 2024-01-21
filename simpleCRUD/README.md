@@ -12,5 +12,7 @@ php artisan migration
 
 php artisan make:migration create_posts_table
 
-php artisan make:model Post
+php artisan make:model Post -m
+
+Изменить .env или изменить .env.example
 
