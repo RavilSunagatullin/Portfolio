@@ -59,7 +59,7 @@
 
 ## Связь и Дополнительная Информация
 
-- **Электронная почта:** work-ravils465@gmail.com
+- **Электронная почта:** workravils465@gmail.com
 - **Telegram:** [Telegram/paxlow](https://t.me/paxlow)
 - **Номер телефона** 8 (927) 437 46-54
 
