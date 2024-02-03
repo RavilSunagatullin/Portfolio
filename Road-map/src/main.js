@@ -1,43 +1,37 @@
-import { createApp } from "vue";
-import "./style.sass";
-import App from "./App.vue";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCheck, faHeart, faPaperPlane, faSun } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
 
-import { createI18n, useI18n } from "vue-i18n";
-import { languages, defaultLocal } from "./i18n";
-const messages = Object.assign(languages);
-const localeStorageLang = localStorage.getItem("lang");
+import { createI18n, useI18n } from 'vue-i18n'
+import App from './App.vue'
+import { defaultLocal, languages } from './i18n'
+import router from './router/router.js'
+import './style.sass'
+
+const messages = Object.assign(languages)
+const localeStorageLang = localStorage.getItem('lang')
 
 const i18n = createI18n({
-  legacy: false,
-  locale: localeStorageLang || defaultLocal,
-  fallbackLocale: "en",
-  messages,
-});
+	legacy: false,
+	locale: localeStorageLang || defaultLocal,
+	fallbackLocale: 'en',
+	messages
+})
 
-import { createPinia } from "pinia";
-const pinia = createPinia();
+const pinia = createPinia()
 
-import router from "./router/router.js";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {
-  faSun,
-  faPaperPlane,
-  faCheck,
-  faHeart,
-} from "@fortawesome/free-solid-svg-icons";
-
-library.add([faSun, faPaperPlane, faCheck, faHeart]);
+library.add([faSun, faPaperPlane, faCheck, faHeart])
 
 createApp(App, {
-  setup() {
-    const { t } = useI18n();
-    return { t };
-  },
+	setup() {
+		const { t } = useI18n()
+		return { t }
+	}
 })
-  .use(i18n)
-  .use(pinia)
-  .use(router)
-  .component("font-awesome-icon", FontAwesomeIcon)
-  .mount("#app");
+	.use(i18n)
+	.use(pinia)
+	.use(router)
+	.component('font-awesome-icon', FontAwesomeIcon)
+	.mount('#app')
