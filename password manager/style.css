@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: sans-serif;
+}
+:root {
+    --background-color: #343541;
+    --background-color-disable: #494a53;
+    --background-color-hover: #40414e;
+    --background-color-white: #f9f9f9;
+    --border-color: 1px solid #565869;
+    --border-color-white: 1px solid #f9f9f9;
+    --font-color: #bdbdc9;
+    --accent-color: #6654ff;
+    --transition: all 0.3s ease;
+}
+button {
+    padding: 10px;
+    border: var(--border-color);
+    border-radius: 4px;
+}
+button:hover {
+    border: var(--border-color-white);
+    color: var(--background-color-white);
+}
+header {
+    padding: 20px;
+}
+.main {
+    max-width: 1480px;
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--background-color-hover);
+    border: var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+.card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: var(--background-color-hover);
+}
+.card__element:hover {
+    border: var(--border-color-white);
+}
+.card__element {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: var(--border-color);
+    gap: 10px;
+    border-radius: 8px;
+}
+.card__text {
+    font-size: 20px;
+}
+.card__actions {
+    background-color: var(--background-color-hover);
+    display: flex;
+    gap: 10px;
+}
+dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: var(--border-color);
+    border-radius: 8px;
+}
+form {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form__elem {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: var(--border-color);
+    width: 100%;
+}
